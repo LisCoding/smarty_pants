@@ -1,0 +1,22 @@
+body {
+  background-color: lightblue
+}
+.done {
+  margin-left: 40px;
+  font-size: 20px;
+}
+.done a {
+  text-decoration: none;
+}
+
+.resources {
+    margin-left: 40px;
+}
+h1 {
+  color: blue;
+}
+
+h4 {
+  font-weight: bold;
+  
+}

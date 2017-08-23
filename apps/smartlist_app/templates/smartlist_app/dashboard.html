@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SmartList</title>
+    {% load static %}
+  <!-- The line above tells Django to be ready to listen for static files -->
+  <link rel="stylesheet" href="{% static 'smartlist_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+  </head>
+  <body>
+    <h1>Hello Liz!</h1>
+    <form class="" action="add_todo" method="post">
+      {% csrf_token %}
+      <input type="text" name="query" value="">
+      <input type="submit" name="" value="add">
+    </form>
+    {% for todo in todos%}
+      <h1>*{{todo.name}}<span class="done"><a href="#">done</a> <a href="delete/{{todo.id}}">delete</a></span></h1>
+      <h4>{{todo.created_resources.first.title}} <a href="#">X</a></h4>
+      <a href="{{resource.link}}">{{resource.link}}</a>
+      <p>{{todo.created_resources.first.snippet}}</p>
+      <h4>{{todo.created_resources.last.title}} <a href="delete/resource/{{todo.created_resources.last.id}}">X</a></h4>
+      <a href="{{resource.link}}">{{resource.link}}</a>
+      <p>{{todo.created_resources.last.snippet}}</p>
+      <a href="#">more....</a>
+      <hr>
+        <!-- {% for resource in todo.created_resources.all%}
+        <h4>{{resource.title}}</h4>
+      <a href="{{resource.link}}">{{resource.link}}</a>
+      <p>{{resource.snippet}}</p>
+        {%endfor%} -->
+    {%endfor%}
+
+    <form class="" action="history" method="post">
+        {% csrf_token %}
+      <input type="submit" name="" value="History">
+    </form>
+    <form class="" action="history" method="post">
+        {% csrf_token %}
+      <input type="submit" name="" value="Share">
+    </form>
+  </body>
+</html>
